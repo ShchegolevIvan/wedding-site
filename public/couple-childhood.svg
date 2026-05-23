@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Childhood photo placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8f2e9"/>
+      <stop offset="0.55" stop-color="#ead8cf"/>
+      <stop offset="1" stop-color="#d7c0b5"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#b99d8b"/>
+      <stop offset="1" stop-color="#6d5146"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect x="0" y="880" width="900" height="320" fill="url(#floor)"/>
+  <rect x="70" y="40" width="270" height="840" fill="#f7f1ea" opacity=".75"/>
+  <path d="M95 40v830M145 40v830M195 40v830M245 40v830M295 40v830" stroke="#d9cbc0" stroke-width="5" opacity=".55"/>
+  <rect x="612" y="48" width="205" height="340" rx="8" fill="#725546"/>
+  <rect x="632" y="68" width="165" height="300" rx="4" fill="#1f2630"/>
+  <circle cx="715" cy="420" r="72" fill="#5c7a55" opacity=".8"/>
+  <rect x="670" y="465" width="95" height="80" rx="8" fill="#9b604a"/>
+  <ellipse cx="328" cy="310" rx="86" ry="96" fill="#f1c79f"/>
+  <path d="M245 292c18-88 138-100 168-15 4-62-33-108-86-112-58-5-99 38-82 127Z" fill="#7a4d37"/>
+  <path d="M205 515c0-112 59-177 125-177s124 65 124 177v300H205Z" fill="#171b25"/>
+  <rect x="270" y="380" width="120" height="220" fill="#f8f2e9"/>
+  <path d="M272 385l58 86 60-86v150H272Z" fill="#ffffff"/>
+  <path d="M298 426h64l-32 28Z" fill="#12151d"/>
+  <rect x="218" y="505" width="55" height="355" rx="24" fill="#171b25"/>
+  <rect x="386" y="505" width="55" height="355" rx="24" fill="#171b25"/>
+  <rect x="235" y="790" width="70" height="290" rx="28" fill="#11141c"/>
+  <rect x="354" y="790" width="70" height="290" rx="28" fill="#11141c"/>
+  <ellipse cx="592" cy="318" rx="82" ry="92" fill="#f0c39d"/>
+  <path d="M510 300c13-83 124-112 168-30 12 22 15 58 6 92-18-35-34-72-88-78-39-4-68 11-86 16Z" fill="#764b3a"/>
+  <path d="M545 230c38-43 116-22 131 22-44-12-85-13-131-22Z" fill="#2d2630"/>
+  <path d="M462 835c12-230 61-377 134-377s122 147 134 377c-71 46-191 46-268 0Z" fill="#fffdf7"/>
+  <path d="M480 555c40 28 176 31 228 0 18 70 28 160 35 280-86 55-219 55-298 0 7-120 17-210 35-280Z" fill="#f6efe7"/>
+  <path d="M487 560c56 66 171 66 223 0" fill="none" stroke="#dfd2c6" stroke-width="10"/>
+  <rect x="438" y="520" width="54" height="330" rx="24" fill="#f0c39d"/>
+  <rect x="704" y="520" width="54" height="330" rx="24" fill="#f0c39d"/>
+  <path d="M500 770c55 35 142 36 195 0" fill="none" stroke="#dfd2c6" stroke-width="12" opacity=".75"/>
+  <circle cx="298" cy="312" r="8" fill="#3e2b24"/>
+  <circle cx="358" cy="312" r="8" fill="#3e2b24"/>
+  <path d="M295 354c24 23 53 23 76 0" fill="none" stroke="#9a5d4d" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="562" cy="320" r="8" fill="#3e2b24"/>
+  <circle cx="624" cy="320" r="8" fill="#3e2b24"/>
+  <path d="M556 364c32 28 65 27 95 0" fill="none" stroke="#9a5d4d" stroke-width="7" stroke-linecap="round"/>
+  <text x="450" y="1138" text-anchor="middle" fill="#fffaf1" font-family="Georgia, serif" font-size="44">Владимир &amp; Екатерина</text>
+</svg>
