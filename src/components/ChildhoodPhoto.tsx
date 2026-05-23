@@ -1,5 +1,8 @@
 import { weddingConfig } from '../config/wedding';
 
+const getAssetUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 export default function ChildhoodPhoto() {
   return (
     <section className="section childhood" aria-labelledby="childhood-photo">
@@ -10,7 +13,7 @@ export default function ChildhoodPhoto() {
         </div>
         <figure className="childhood__figure">
           <img
-            src={weddingConfig.childhoodPhoto}
+            src={getAssetUrl(weddingConfig.childhoodPhoto)}
             alt="Детская фотография Владимира и Екатерины"
           />
         </figure>
