@@ -130,7 +130,6 @@ export default function RSVP() {
     <section className="section rsvp" id="rsvp" aria-labelledby="rsvp-title">
       <div className="container">
         <div className="rsvp__intro">
-          <p className="section__kicker">RSVP</p>
           <h2 id="rsvp-title">Подтвердите присутствие</h2>
           <p>
             Пожалуйста, ответьте на несколько вопросов, чтобы мы смогли

@@ -4,7 +4,6 @@ export default function Invitation() {
   return (
     <section className="section invitation" aria-labelledby="invitation">
       <div className="container container--narrow">
-        <p className="section__kicker">Приглашение</p>
         <h2 id="invitation">Мы ждем вас</h2>
         <p className="invitation__text">{weddingConfig.invitationText}</p>
         <p className="invitation__date">{weddingConfig.displayDate}</p>

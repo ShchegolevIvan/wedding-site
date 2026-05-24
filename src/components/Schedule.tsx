@@ -4,7 +4,6 @@ export default function Schedule() {
   return (
     <section className="section section--tinted" aria-labelledby="schedule">
       <div className="container">
-        <p className="section__kicker">План дня</p>
         <h2 id="schedule">Расписание</h2>
         <div className="timeline">
           {weddingConfig.schedule.map((item) => (

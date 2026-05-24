@@ -78,16 +78,6 @@ a {
   text-align: center;
 }
 
-.eyebrow,
-.section__kicker {
-  margin: 0 0 12px;
-  color: #8c6b6f;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 h1,
 h2,
 h3,
@@ -236,15 +226,9 @@ h3 {
   padding-top: 54px;
 }
 
-.childhood__grid {
-  display: grid;
-  gap: 28px;
-  align-items: center;
-}
-
-.childhood__copy p {
-  color: var(--color-muted);
-  font-size: 1.08rem;
+.childhood__photo-wrap {
+  display: flex;
+  justify-content: center;
 }
 
 .childhood__figure {
@@ -635,12 +619,7 @@ textarea:focus {
     padding-top: 52px;
   }
 
-  .childhood__grid {
-    grid-template-columns: 0.86fr 1.14fr;
-  }
-
   .childhood__figure {
-    justify-self: end;
     width: min(100%, 520px);
   }
 

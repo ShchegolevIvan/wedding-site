@@ -31,7 +31,6 @@ export default function PaperHeart() {
     >
       <div className="container paper-heart__grid">
         <div className="paper-heart__copy">
-          <p className="section__kicker">С любовью</p>
           <h2 id="paper-heart-title">Важный день уже близко</h2>
           <p>
             Пусть это приглашение раскроется как маленькое бумажное сердце и

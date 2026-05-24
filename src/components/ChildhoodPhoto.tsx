@@ -5,12 +5,8 @@ const getAssetUrl = (path: string) =>
 
 export default function ChildhoodPhoto() {
   return (
-    <section className="section childhood" aria-labelledby="childhood-photo">
-      <div className="container childhood__grid">
-        <div className="childhood__copy">
-          <p className="section__kicker">Наша история</p>
-          <h2 id="childhood-photo">С самого детства</h2>
-        </div>
+    <section className="section childhood" aria-label="Детская фотография">
+      <div className="container childhood__photo-wrap">
         <figure className="childhood__figure">
           <img
             src={getAssetUrl(weddingConfig.childhoodPhoto)}

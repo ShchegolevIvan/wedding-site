@@ -5,7 +5,6 @@ export default function Location() {
     <section className="section location" aria-labelledby="location">
       <div className="container location__grid">
         <div>
-          <p className="section__kicker">Локация</p>
           <h2 id="location">Где встречаемся</h2>
           <div className="location__details">
             <h3>{weddingConfig.ceremonyVenue}</h3>

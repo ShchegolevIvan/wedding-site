@@ -40,7 +40,6 @@ export default function Countdown() {
   return (
     <section className="section section--compact" aria-labelledby="countdown">
       <div className="container">
-        <p className="section__kicker">До свадьбы осталось</p>
         <h2 id="countdown">Обратный отсчет</h2>
         {timeLeft ? (
           <div className="countdown" aria-live="polite">
