@@ -40,70 +40,41 @@ docker compose up --build
 
 Форма на сайте остается кастомной и не выглядит как Google Forms. Данные отправляются в Google Apps Script, а скрипт добавляет строку в Google Таблицу.
 
-Таблица для ответов:
+Текущие колонки таблицы:
 
 ```text
-https://docs.google.com/spreadsheets/d/1K0IKCcwfkmd7YJtwUa9dTWh0IKfv8XkAGM6eqztIXss/edit
+Дата отправки | Имя и фамилия | присутствие на торжестве | присутствие в ЗАГСе
 ```
 
 Готовый код Apps Script лежит в `google-apps-script/rsvp.gs`.
 
-### Как подключить таблицу
+### Как обновить Apps Script
 
 1. Открой Google Таблицу.
 2. Нажми `Расширения -> Apps Script`.
-3. Удали стартовый код.
-4. Вставь код из `google-apps-script/rsvp.gs`.
-5. Проверь название листа. По умолчанию в скрипте стоит:
+3. Вставь актуальный код из `google-apps-script/rsvp.gs`.
+4. Нажми `Сохранить`.
+5. Для проверки выбери функцию `testWrite` и нажми `Выполнить`.
+6. Если тестовая строка появилась в таблице, обнови деплой:
+   `Развернуть -> Управление развертываниями -> Изменить -> Версия: Новая версия -> Развернуть`.
 
-```js
-const SHEET_NAME = 'Лист1';
-```
+Web App URL менять не нужно, если это то же развертывание.
 
-Если вкладка внизу таблицы называется иначе, поменяй `Лист1` на реальное имя.
+## GitHub Pages
 
-6. Нажми `Развернуть -> Новое развертывание`.
-7. Тип развертывания: `Веб-приложение`.
-8. Настройки:
+Деплой настроен через GitHub Actions. Для production-сборки нужна repository variable:
 
 ```text
-Выполнять от имени: Меня
-У кого есть доступ: Все
-```
-
-9. Нажми `Развернуть`, пройди авторизацию и скопируй Web App URL вида:
-
-```text
-https://script.google.com/macros/s/.../exec
-```
-
-10. Создай локальный файл `.env` рядом с `package.json`:
-
-```env
 VITE_RSVP_ENDPOINT=https://script.google.com/macros/s/.../exec
 ```
 
-11. Перезапусти Vite:
+Добавляется здесь:
 
-```bash
-npm run dev
+```text
+Settings -> Secrets and variables -> Actions -> Variables
 ```
 
-После этого RSVP-форма начнет отправлять ответы в Google Таблицу.
-
-## Деплой на GitHub Pages
-
-1. Соберите проект командой `npm run build`.
-2. Настройте GitHub Actions для публикации папки `dist`.
-3. В настройках репозитория включите GitHub Pages и выберите источник GitHub Actions.
-4. Добавьте переменную окружения `VITE_RSVP_ENDPOINT` со ссылкой на Google Apps Script Web App.
-5. Если сайт будет опубликован не в корне домена, добавьте `base` в `vite.config.ts`.
-
-Для Cloudflare Pages обычно достаточно подключить репозиторий и указать:
-
-- Build command: `npm run build`
-- Build output directory: `dist`
-- Environment variable: `VITE_RSVP_ENDPOINT`
+После push workflow сам собирает проект и публикует папку `dist`.
 
 ## Что заменить перед отдачей клиентке
 

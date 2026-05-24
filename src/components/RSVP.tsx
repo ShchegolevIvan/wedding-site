@@ -5,16 +5,14 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'error';
 
 type FormErrors = {
   fullName?: string;
-  attendance?: string;
+  celebrationAttendance?: string;
+  registryAttendance?: string;
 };
 
 const initialForm = {
   fullName: '',
-  attendance: '',
-  guestsCount: '1',
-  transfer: 'no',
-  foodPreference: 'none',
-  comment: '',
+  celebrationAttendance: '',
+  registryAttendance: '',
 };
 
 const isGoogleAppsScriptEndpoint = (endpoint: string) =>
@@ -38,11 +36,17 @@ export default function RSVP() {
     const nextErrors: FormErrors = {};
 
     if (!form.fullName.trim()) {
-      nextErrors.fullName = 'Укажите имя и фамилию';
+      nextErrors.fullName = 'Напишите Ваше ФИО';
     }
 
-    if (!form.attendance) {
-      nextErrors.attendance = 'Выберите вариант ответа';
+    if (!form.celebrationAttendance) {
+      nextErrors.celebrationAttendance =
+        'Выберите, сможете ли Вы присутствовать на торжестве';
+    }
+
+    if (!form.registryAttendance) {
+      nextErrors.registryAttendance =
+        'Выберите, планируете ли Вы присутствовать в ЗАГСе';
     }
 
     setErrors(nextErrors);
@@ -61,7 +65,6 @@ export default function RSVP() {
 
     const payload = {
       ...form,
-      guestsCount: Number(form.guestsCount),
       submittedAt: new Date().toISOString(),
     };
 
@@ -130,14 +133,14 @@ export default function RSVP() {
           <p className="section__kicker">RSVP</p>
           <h2 id="rsvp-title">Подтвердите присутствие</h2>
           <p>
-            Пожалуйста, заполните форму, чтобы мы смогли подготовить праздник с
-            заботой о каждом госте.
+            Пожалуйста, ответьте на несколько вопросов, чтобы мы смогли
+            подготовиться к встрече с вами.
           </p>
         </div>
 
         <form className="rsvp__form" onSubmit={handleSubmit} noValidate>
           <label>
-            <span>Имя и фамилия</span>
+            <span>Напишите Ваше ФИО</span>
             <input
               type="text"
               value={form.fullName}
@@ -153,79 +156,72 @@ export default function RSVP() {
           </label>
 
           <fieldset>
-            <legend>Ваш ответ</legend>
+            <legend>Сможете ли Вы присутствовать на нашем торжестве?</legend>
             <div className="radio-grid">
               <label>
                 <input
                   type="radio"
-                  name="attendance"
-                  value="yes"
-                  checked={form.attendance === 'yes'}
-                  onChange={(event) => updateField('attendance', event.target.value)}
+                  name="celebrationAttendance"
+                  value="Да"
+                  checked={form.celebrationAttendance === 'Да'}
+                  onChange={(event) =>
+                    updateField('celebrationAttendance', event.target.value)
+                  }
                 />
-                <span>Приду</span>
+                <span>Да, буду</span>
               </label>
               <label>
                 <input
                   type="radio"
-                  name="attendance"
-                  value="no"
-                  checked={form.attendance === 'no'}
-                  onChange={(event) => updateField('attendance', event.target.value)}
+                  name="celebrationAttendance"
+                  value="Нет"
+                  checked={form.celebrationAttendance === 'Нет'}
+                  onChange={(event) =>
+                    updateField('celebrationAttendance', event.target.value)
+                  }
                 />
-                <span>Не приду</span>
+                <span>Нет, не смогу</span>
               </label>
             </div>
-            {errors.attendance && (
-              <small className="field-error">{errors.attendance}</small>
+            {errors.celebrationAttendance && (
+              <small className="field-error">
+                {errors.celebrationAttendance}
+              </small>
             )}
           </fieldset>
 
-          <div className="form-grid">
-            <label>
-              <span>Количество гостей</span>
-              <input
-                type="number"
-                min="1"
-                max="10"
-                value={form.guestsCount}
-                onChange={(event) => updateField('guestsCount', event.target.value)}
-              />
-            </label>
-
-            <label>
-              <span>Нужен ли трансфер</span>
-              <select
-                value={form.transfer}
-                onChange={(event) => updateField('transfer', event.target.value)}
-              >
-                <option value="no">Нет</option>
-                <option value="yes">Да</option>
-              </select>
-            </label>
-          </div>
-
-          <label>
-            <span>Предпочтения по еде</span>
-            <select
-              value={form.foodPreference}
-              onChange={(event) => updateField('foodPreference', event.target.value)}
-            >
-              <option value="none">Нет</option>
-              <option value="meat">Мясо</option>
-              <option value="fish">Рыба</option>
-              <option value="vegetarian">Вегетарианское</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Комментарий</span>
-            <textarea
-              rows={4}
-              value={form.comment}
-              onChange={(event) => updateField('comment', event.target.value)}
-            />
-          </label>
+          <fieldset>
+            <legend>Планируете ли Вы присутствовать в ЗАГСе?</legend>
+            <div className="radio-grid">
+              <label>
+                <input
+                  type="radio"
+                  name="registryAttendance"
+                  value="Да"
+                  checked={form.registryAttendance === 'Да'}
+                  onChange={(event) =>
+                    updateField('registryAttendance', event.target.value)
+                  }
+                />
+                <span>Да</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="registryAttendance"
+                  value="Нет"
+                  checked={form.registryAttendance === 'Нет'}
+                  onChange={(event) =>
+                    updateField('registryAttendance', event.target.value)
+                  }
+                />
+                <span>Нет</span>
+              </label>
+            </div>
+            {errors.registryAttendance && (
+              <small className="field-error">{errors.registryAttendance}</small>
+            )}
+          </fieldset>
 
           <button
             className="button button--primary"

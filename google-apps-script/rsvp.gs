@@ -3,11 +3,8 @@ const SPREADSHEET_ID = '1K0IKCcwfkmd7YJtwUa9dTWh0IKfv8XkAGM6eqztIXss';
 const HEADERS = [
   'Дата отправки',
   'Имя и фамилия',
-  'Ответ',
-  'Количество гостей',
-  'Трансфер',
-  'Еда',
-  'Комментарий',
+  'присутствие на торжестве',
+  'присутствие в ЗАГСе',
 ];
 
 function doPost(e) {
@@ -29,11 +26,8 @@ function doGet() {
 function testWrite() {
   appendRsvp({
     fullName: 'Тестовый гость',
-    attendance: 'yes',
-    guestsCount: 1,
-    transfer: 'no',
-    foodPreference: 'none',
-    comment: 'Проверка записи из Apps Script',
+    celebrationAttendance: 'Да',
+    registryAttendance: 'Нет',
     submittedAt: new Date().toISOString(),
   });
 }
@@ -45,11 +39,8 @@ function appendRsvp(data) {
   sheet.appendRow([
     data.submittedAt ? new Date(data.submittedAt) : new Date(),
     data.fullName || '',
-    normalizeAttendance(data.attendance),
-    data.guestsCount || '',
-    data.transfer === 'yes' ? 'Да' : 'Нет',
-    normalizeFood(data.foodPreference),
-    data.comment || '',
+    data.celebrationAttendance || '',
+    data.registryAttendance || '',
   ]);
 }
 
@@ -80,29 +71,6 @@ function parsePayload(e) {
   }
 
   return JSON.parse(e.postData.contents);
-}
-
-function normalizeAttendance(value) {
-  if (value === 'yes') {
-    return 'Приду';
-  }
-
-  if (value === 'no') {
-    return 'Не приду';
-  }
-
-  return value || '';
-}
-
-function normalizeFood(value) {
-  const labels = {
-    none: 'Нет',
-    meat: 'Мясо',
-    fish: 'Рыба',
-    vegetarian: 'Вегетарианское',
-  };
-
-  return labels[value] || value || '';
 }
 
 function jsonResponse(payload) {
