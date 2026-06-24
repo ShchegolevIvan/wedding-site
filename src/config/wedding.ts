@@ -22,8 +22,8 @@ export const weddingConfig = {
     {
       time: '17:00',
       title: 'Праздничный банкет',
-      place: 'Ресторан "Лямур"',
-      address: 'проспект Испытателей 4, корп. 1',
+      place: 'Лофт "Ниагара"',
+      address: 'Улица Космосомола, 2',
     },
   ],
   rsvpEndpoint: import.meta.env.VITE_RSVP_ENDPOINT?.trim() || undefined,
