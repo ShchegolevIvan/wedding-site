@@ -4,7 +4,7 @@ export const weddingConfig = {
   displayDate: '5 августа 2026',
   displayTime: '15:20',
   ceremonyVenue: 'Дворец бракосочетания 2',
-  ceremonyAddress: 'Фурштатская улица, 52',
+  ceremonyAddress: 'Космсомола улица, 2',
   venue: 'Ресторан "Лямур"',
   address: 'проспект Испытателей 4, корп. 1',
   mapUrl: 'https://maps.app.goo.gl/EPMgnQSKD2aefhuU7',
